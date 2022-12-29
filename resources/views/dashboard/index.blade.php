@@ -5,7 +5,7 @@
             <div class="card shadow">
                 <div class="card-header">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h3 class="h3 mb-0 text-gray-800">Dashboard's</h3>
+                        <h3 class="h3 mb-0 text-gray-800">Dashboard</h3>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
