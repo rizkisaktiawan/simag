@@ -23,8 +23,8 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Division</th>
                                     <th scope="col">Summary</th>
+                                    <th scope="col">Priority</th>
                                     <th scope="col">Status</th>
-                                    <th scope="col">Job&nbsp;Status</th>
                                     <th scope="col">Category</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -37,8 +37,8 @@
                                         <td>{{ $ticketing->name }}</td>
                                         <td>{{ $ticketing->division->name }}</td>
                                         <td>{{ $ticketing->summary }}</td>
+                                        <td>{{ $ticketing->priority }}</td>
                                         <td>{{ $ticketing->status }}</td>
-                                        <td>{{ $ticketing->status_job }}</td>
                                         <td>{{ $ticketing->category }}</td>
                                         <td>
                                             <a href="/dashboard/ticketings/{{ $ticketing->id }}"

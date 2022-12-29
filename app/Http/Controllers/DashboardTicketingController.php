@@ -54,6 +54,7 @@ class DashboardTicketingController extends Controller
             'summary' => 'required',
             'description' => 'required',
             'image_before' => 'image|file|max:5120',
+            'priority' => 'required',
             'status' => 'required',
             'category' => 'required'
         ]);

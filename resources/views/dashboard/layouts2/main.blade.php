@@ -18,8 +18,8 @@
         rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/dashboard2.css') }}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js" rel="stylesheet"
-        type="text/css">
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js" rel="stylesheet"
+        type="text/css"> --}}
 
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.css" rel="stylesheet"> --}}
 
@@ -116,6 +116,20 @@
             imgPreview.src = oFREvent.target.result;
         }
     }
+
+    function previewimage_after() {
+        const image_after = document.querySelector('#image_after');
+        const imgPreview = document.querySelector('.img-preview');
+
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image_after.files[0]);
+
+        oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
 </script>
 
 <script>
@@ -169,6 +183,9 @@
     });
     $(document).ready(function() {
         $('#datatablesIT').DataTable();
+    });
+    $(document).ready(function() {
+        $('#datatablesITCategory').DataTable();
     });
 </script>
 

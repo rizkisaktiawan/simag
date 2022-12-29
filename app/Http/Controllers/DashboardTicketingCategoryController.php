@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Division;
+use App\Models\TicketingCategory;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
-class DashboardDivisionController extends Controller
+class DashboardTicketingCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class DashboardDivisionController extends Controller
     public function index()
     {
         //
-        return view('dashboard.divisions.index',[
-            'divisions' => Division::all()
+        return view('dashboard.ticketings.categories.index',[
+            'TicketingCategories' => TicketingCategory::all()
         ]);
     }
 
@@ -29,8 +29,8 @@ class DashboardDivisionController extends Controller
     public function create()
     {
         //
-        return view('dashboard.divisions.create', [
-            'divisions' => Division::all()
+        return view('dashboard.ticketings.categories.create', [
+            'TicketingCategories' => TicketingCategory::all()
         ]);
     }
 
@@ -50,18 +50,18 @@ class DashboardDivisionController extends Controller
 
         $validatedData['user_id'] = auth()->user()->id;
 
-        Division::create($validatedData);
+        TicketingCategory::create($validatedData);
         
-        return redirect('/dashboard/divisions')->with('success', 'New Division Has Been Added!');
+        return redirect('/dashboard/ticketings/categories')->with('success', 'New Category Has Been Added!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Division  $division
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Division $division)
+    public function show(TicketingCategory $TicketingCategory)
     {
         //
     }
@@ -69,61 +69,63 @@ class DashboardDivisionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Division  $division
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Division $division)
+    public function edit(TicketingCategory $TicketingCategory)
     {
         //
-        return view('dashboard.divisions.edit', [
-            'division' => $division
-        ]);
+        return view('dashboard.ticketings.categories.edit',
+        [
+            'TicketingCategory' => $TicketingCategory
+        ]
+    );
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Division  $division
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Division $division)
+    public function update(Request $request, TicketingCategory $TicketingCategory)
     {
         //
         $rules = [
             'name' => 'required|max:255'
         ];
 
-        if ($request->slug != $division->slug){
-            $rules['slug'] = 'required|unique:divisions';
+        if ($request->slug != $TicketingCategory->slug){
+            $rules['slug'] = 'required|unique:TicketingCategories';
         }
 
         $validatedData = $request->validate($rules);
 
         // $validatedData['id'] = auth()->user()->id;
 
-        Division::where('id', $division->id)
+        TicketingCategory::where('id', $TicketingCategory->id)
         ->update($validatedData);
 
-        return redirect('/dashboard/divisions')->with('success', 'Division Has Been Updated!');
+        return redirect('/dashboard/ticketings/categories')->with('success', 'Category Has Been Updated!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Division  $division
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Division $division)
+    public function destroy(TicketingCategory $TicketingCategory)
     {
         //
-        Division::destroy($division->id);
-        return redirect('/dashboard/divisions')->with('success', 'Division Has Been Deleted!');
+        TicketingCategory::destroy($TicketingCategory->id);
+        return redirect('/dashboard/ticketings/categories')->with('success', 'Category Has Been Deleted!');
     }
 
     public function checkSlug(Request $request)
     {
-        $slug = SlugService::createSlug(Division::class, 'slug', $request->name);
+        $slug = SlugService::createSlug(TicketingCategory::class, 'slug', $request->name);
         return response()->json(['slug' => $slug]);
     }
 }

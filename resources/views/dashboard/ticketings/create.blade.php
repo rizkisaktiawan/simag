@@ -5,7 +5,7 @@
         <div class="col-lg-12">
             <div class="card shadow">
                 <div class="card-header">
-                    <h3>Create New Ticket</h3>
+                    <h3>Create New Ticket's</h3>
                 </div>
                 <div class="card-body">
                     @if (session()->has('success'))
@@ -29,18 +29,9 @@
                             </div>
 
                             <div class="mb-3">
-                                Division
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="division" class="form-label">Division</label>
+                                <label for="division_id" class="form-label">Division</label>
                                 <select class="form-select" name="division_id">
+                                    <option selected>Open this select menu</option>
                                     @foreach ($divisions as $division)
                                         @if (old('division_id') == $division->id)
                                             <option value="{{ $division->id }}" selected>{{ $division->name }}</option>
@@ -48,7 +39,6 @@
                                             <option value="{{ $division->id }}">{{ $division->name }}</option>
                                         @endif
                                     @endforeach
-
                                 </select>
                             </div>
 
@@ -86,9 +76,9 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="status" class="form-label">Status</label>
-                                <select class="form-select" name="status">
-                                    @error('status')
+                                <label for="priority" class="form-label">Priority</label>
+                                <select class="form-select" name="priority">
+                                    @error('priority')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
@@ -97,6 +87,20 @@
                                     <option value="Urgent">Urgent</option>
                                     <option value="Normal">Normal</option>
                                     <option value="Low">Low</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="status" class="form-label">Status</label>
+                                <select class="form-select" name="status">
+                                    @error('status')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                    <option selected>Open this select menu</option>
+                                    <option value="Open">Open</option>
+                                    <option value="Closed">Closed</option>
                                 </select>
                             </div>
 

@@ -55,8 +55,8 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Division</th>
                                     <th scope="col">Summary</th>
+                                    <th scope="col">Priority</th>
                                     <th scope="col">Status</th>
-                                    <th scope="col">Status Job</th>
                                     <th scope="col">Category</th>
                                 </tr>
                             </thead>
@@ -65,8 +65,8 @@
                                     <td>{{ $ticketing->name }}</td>
                                     <td>{{ $ticketing->division->name }}</td>
                                     <td>{{ $ticketing->summary }}</td>
+                                    <td>{{ $ticketing->priority }}</td>
                                     <td>{{ $ticketing->status }}</td>
-                                    <td>{{ $ticketing->status_job }}</td>
                                     <td>{{ $ticketing->category }}</td>
                                 </tr>
                             </tbody>

@@ -58,6 +58,7 @@
                 <i class="fas fa-fw fa-user"></i>
                 <span>User's</span></a>
         </li>
+
         <ul class="nav flex-column">
 
             <hr class="sidebar-divider">
@@ -84,17 +85,39 @@
                     <span>Division's</span></a>
             </li>
         </ul>
+
         <hr class="sidebar-divider">
         <div class="sidebar-heading">
             Information Tech.
         </div>
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item {{ Request::is('dashboard/ticketings*', 'dashboard/ticketings/priorities*') ? 'active' : '' }}">
+            <a class="nav-link " aria-current="page" collapsed" href="#" data-toggle="collapse"
+                data-target="#collapseIT" aria-expanded="true" aria-controls="collapseIT">
+                <i class="fas fa-fw fa-book-open"></i>
+                <span>IT Ticketing System's</span>
+            </a>
+            <div id="collapseIT" class="collapse" aria-labelledby="headingIT" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="/dashboard/ticketings">Ticket's</a>
+                    <a class="collapse-item" href="/dashboard/ticketings/priorities">Prioritie's</a>
+                    <a class="collapse-item" href="/dashboard/ticketings/categories">Categorie's</a>
+                </div>
+            </div>
+        </li>
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/ticketings*') ? 'active' : '' }}" aria-current="page"
                 href="/dashboard/ticketings">
                 <i class="fas fa-fw fa-ticket"></i>
                 <span>IT Ticketing System's</span></a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link {{ Request::is('dashboard/ticketings/priorities') ? 'active' : '' }}" aria-current="page"
+                href="/dashboard/ticketings/priorities">
+                <i class="fas fa-fw fa-ticket"></i>
+                <span>Priority</span></a>
+        </li> --}}
     @endcan
 
     {{-- </div> --}}

@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardDivisionController;
 use App\Http\Controllers\DashboardStatusController;
 use App\Http\Controllers\DashboardEmployeeController;
 use App\Http\Controllers\DashboardITController;
+use App\Http\Controllers\DashboardUserController;
 use App\Models\Category;
 
 use Illuminate\Support\Facades\Route;
@@ -13,8 +14,11 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardSalesController;
+
 use App\Http\Controllers\DashboardTicketingController;
-use App\Http\Controllers\DashboardUserController;
+use App\Http\Controllers\DashboardTicketingPriorityController;
+use App\Http\Controllers\DashboardTicketingCategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -90,8 +94,14 @@ Route::resource('/dashboard/users', DashboardUserController::class)->middleware(
 Route::get('/dashboard/employees/checkSlug', [DashboardEmployeeController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/employees', DashboardEmployeeController::class)->middleware('admin');
 
-Route::get('/dashboard/ticketings/checkSlug', [DashboardTicketingController::class, 'checkSlug'])->middleware('auth');
-Route::resource('/dashboard/ticketings', DashboardTicketingController::class)->middleware('admin');
+// Route::get('/dashboard/ticketings/checkSlug', [DashboardTicketingController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/dashboard/ticketings/', DashboardTicketingController::class)->middleware('admin');
+
+// Route::get('/dashboard/ticketings/priorities/checkSlug', [DashboardTicketingPriorityController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/dashboard/ticketings/priorities/', DashboardTicketingPriorityController::class)->middleware('admin');
+
+Route::get('/dashboard/ticketings/categories/checkSlug', [DashboardTicketingCategoryController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/dashboard/ticketings/categories', DashboardTicketingCategoryController::class)->middleware('admin');
 
 Route::get('/dashboard/divisions/checkSlug', [DashboardDivisionController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/divisions', DashboardDivisionController::class)->middleware('admin');
