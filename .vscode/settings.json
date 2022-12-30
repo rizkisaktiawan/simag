@@ -1,0 +1,10 @@
+{
+  "editor.cursorSmoothCaretAnimation": false,
+  "editor.cursorSurroundingLines": 0,
+  "editor.cursorSurroundingLinesStyle": "default",
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "Hack, Consolas, 'Courier New', monospace",
+  "editor.fontVariations": true,
+  "editor.fontWeight": "normal",
+  "diffEditor.codeLens": true
+}
