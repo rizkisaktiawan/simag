@@ -34,6 +34,7 @@
                                             <a href="/dashboard/divisions/{{ $division->id }}/edit"
                                                 class="btn btn-warning btn-circle btn-sm">
                                                 <span class="fa-solid fa-pencil"></span></a>
+
                                             <form action="/dashboard/divisions/{{ $division->id }}" method="POST"
                                                 class="d-inline">
                                                 @method('delete')

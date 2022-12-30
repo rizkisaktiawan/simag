@@ -117,6 +117,7 @@ class DashboardDivisionController extends Controller
     public function destroy(Division $division)
     {
         //
+        // dd($division);
         Division::destroy($division->id);
         return redirect('/dashboard/divisions')->with('success', 'Division Has Been Deleted!');
     }

@@ -64,10 +64,10 @@ class AdmincategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(category $category)
-    {
-        //
-    }
+    // public function show(category $category)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.

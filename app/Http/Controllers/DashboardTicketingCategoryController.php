@@ -119,6 +119,7 @@ class DashboardTicketingCategoryController extends Controller
     public function destroy(TicketingCategory $TicketingCategory)
     {
         //
+        dd($TicketingCategory);
         TicketingCategory::destroy($TicketingCategory->id);
         return redirect('/dashboard/ticketings/categories')->with('success', 'Category Has Been Deleted!');
     }
