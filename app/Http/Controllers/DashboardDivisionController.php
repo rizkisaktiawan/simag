@@ -75,6 +75,7 @@ class DashboardDivisionController extends Controller
     public function edit(Division $division)
     {
         //
+        // dd($division);
         return view('dashboard.divisions.edit', [
             'division' => $division
         ]);

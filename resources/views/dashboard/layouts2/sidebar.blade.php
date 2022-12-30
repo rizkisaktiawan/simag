@@ -102,6 +102,7 @@
                     <a class="collapse-item" href="/dashboard/ticketings">Ticket's</a>
                     <a class="collapse-item" href="/dashboard/ticketings/priorities">Prioritie's</a>
                     <a class="collapse-item" href="/dashboard/ticketings/categories">Categorie's</a>
+                    <a class="collapse-item" href="/dashboard/ticketings/cats">Cat's</a>
                 </div>
             </div>
         </li>

@@ -37,7 +37,7 @@
 
                                             <form action="/dashboard/divisions/{{ $division->id }}" method="POST"
                                                 class="d-inline">
-                                                @method('delete')
+                                                @method('DELETE')
                                                 @csrf
                                                 <button class="btn btn-danger btn-circle btn-sm"
                                                     onclick="return confirm('Are You Sure?')"><span
