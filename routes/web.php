@@ -16,9 +16,9 @@ use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardSalesController;
 
 use App\Http\Controllers\DashboardTicketingController;
-use App\Http\Controllers\TicketCategoryController;
-use App\Http\Controllers\Ticketing\DashboardTicketingCategoryController;
-use App\Http\Controllers\Ticketing\DashboardTicketingPrioritiesController;
+use App\Http\Controllers\Ticketings\TicketingCategoryController;
+use App\Http\Controllers\Ticketings\TicketingPriorityController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -48,16 +48,6 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/page-top', function () {
-    return view('dashboard.ticketings.index', [
-        // "title" => "About",
-        // "active" => 'about',
-        // "name" => "Deni Ruhyadi",
-        // "email" => "dryd78@gmail.com",
-        // "image" => "dryd.jpg"
-    ]);
-});
-
 
 Route::get('/posts', [PostController::class, 'index']);
 
@@ -77,8 +67,8 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 
-Route::get('/register', [RegisterController::class, 'index'])->middleware('admin');
-Route::post('/register', [RegisterController::class, 'store'])->middleware('admin');
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 
 
 //DASHBORD POSTS->>>
@@ -95,19 +85,14 @@ Route::get('/dashboard/employees/checkSlug', [DashboardEmployeeController::class
 Route::resource('/dashboard/employees', DashboardEmployeeController::class)->middleware('admin');
 
 // Route::get('/dashboard/ticketings/checkSlug', [DashboardTicketingController::class, 'checkSlug'])->middleware('auth');
-Route::resource('/dashboard/ticketings/', DashboardTicketingController::class)->middleware('admin');
+Route::resource('/dashboard/ticketings', DashboardTicketingController::class)->middleware('admin');
 
-Route::get('/dashboard/ticketings/categories/checkSlug', [DashboardTicketingCategoryController::class, 'checkSlug'])->middleware('auth');
-Route::resource('/dashboard/ticketings/categories/', DashboardTicketingCategoryController::class)->middleware('admin');
-
-Route::get('/dashboard/ticketings/priorities/checkSlug', [DashboardTicketingPrioritiesController::class, 'checkSlug'])->middleware('auth');
-Route::resource('/dashboard/ticketings/priorities/', DashboardTicketingPrioritiesController::class)->middleware('admin');
+Route::get('/dashboard/ticketings/categories/checkSlug', [TicketingCategoryController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/dashboard/ticketings/categories', TicketingCategoryController::class)->middleware('admin');
+Route::resource('/dashboard/ticketings/priorities', TicketingPriorityController::class)->middleware('admin');
 
 Route::get('/dashboard/divisions/checkSlug', [DashboardDivisionController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/divisions', DashboardDivisionController::class)->middleware('admin');
-
-Route::get('/dashboard/ticketings/cats/checkSlug', [TicketCategoryController::class, 'checkSlug'])->middleware('auth');
-Route::resource('/dashboard/ticketings/cats', TicketCategoryController::class)->middleware('admin');
 
 Route::get('/dashboard', function(){
     return view('dashboard.index');

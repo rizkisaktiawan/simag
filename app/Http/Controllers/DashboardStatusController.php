@@ -112,6 +112,7 @@ class DashboardStatusController extends Controller
     public function destroy(Status $status)
     {
         //
+        dd($status);
         Status::destroy($status->id);
         return redirect('/dashboard/statuses')->with('success', 'Status Has Been Deleted!');
     }

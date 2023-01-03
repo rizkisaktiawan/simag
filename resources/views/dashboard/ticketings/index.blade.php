@@ -37,10 +37,11 @@
                                         <td>{{ $ticketing->name }}</td>
                                         <td>{{ $ticketing->division->name }}</td>
                                         <td>{{ $ticketing->summary }}</td>
-                                        <td>{{ $ticketing->priority }}</td>
-                                        <td>{{ $ticketing->status }}</td>
-                                        <td>{{ $ticketing->category }}</td>
+                                        <td>{{ $ticketing->priority_id }}</td>
+                                        <td>{{ $ticketing->status_id }}</td>
+                                        <td>{{ $ticketing->category_id }}</td>
                                         <td>
+                                            {{-- <a href="{{ route('ticketi') }}"></a> --}}
                                             <a href="/dashboard/ticketings/{{ $ticketing->id }}"
                                                 class="btn btn-info btn-circle btn-sm"><i class="fa-solid fa-eye"></i></a>
                                             <a href="/dashboard/ticketings/{{ $ticketing->id }}/edit"

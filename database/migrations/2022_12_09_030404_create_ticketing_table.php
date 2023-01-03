@@ -18,9 +18,16 @@ return new class extends Migration
             // $table->timestamps();
 
             $table->increments('id');
+            $table->string('name');
+            $table->string('division_id');
             $table->string('summary');
             $table->text('description');
-            $table->string('status');
+            $table->string('image_before')->nullable();
+            $table->string('image_after')->nullable();
+            $table->string('priority_id');
+            $table->string('status_id');
+            $table->string('category_id');
+
             // $table->integer('priority_id')->unsigned();
             // $table->integer('user_id')->unsigned();
             // $table->integer('agent_id')->unsigned();

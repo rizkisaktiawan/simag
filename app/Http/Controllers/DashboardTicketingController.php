@@ -18,10 +18,12 @@ class DashboardTicketingController extends Controller
      */
     public function index()
     {
-        //
+        // //
         return view('dashboard.ticketings.index',[
             'ticketings' => Ticketing::all()
         ]);
+
+        // return view('dashboard.ticketings.index');
     }
 
     /**
@@ -54,9 +56,9 @@ class DashboardTicketingController extends Controller
             'summary' => 'required',
             'description' => 'required',
             'image_before' => 'image|file|max:5120',
-            'priority' => 'required',
-            'status' => 'required',
-            'category' => 'required'
+            'priority_id' => 'required',
+            'status_id' => 'required',
+            'category_id' => 'required'
         ]);
 
         // $validatedData['user_id'] = auth()->user()->id;
@@ -134,6 +136,7 @@ class DashboardTicketingController extends Controller
     public function destroy(Ticketing $ticketing)
     {
         //
+        // dd($ticketing);
         Ticketing::destroy($ticketing->id);
         return redirect('/dashboard/ticketings')->with('success', 'Ticket Has Been Deleted!');
     }

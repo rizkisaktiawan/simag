@@ -17,10 +17,10 @@ class Ticketing extends Model
         return $this->belongsTo(Division::class);
     }
 
-    // public function category()
-    // {
-    //     return $this->belongsTo(category::class);
-    // }
+    public function category()
+    {
+        return $this->belongsTo(category::class);
+    }
 }
 
 class Project extends Model

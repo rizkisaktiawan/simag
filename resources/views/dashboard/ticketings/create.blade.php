@@ -5,7 +5,7 @@
         <div class="col-lg-12">
             <div class="card shadow">
                 <div class="card-header">
-                    <h3>Create New Ticket's</h3>
+                    <h3>Create New Ticket'ss</h3>
                 </div>
                 <div class="card-body">
                     @if (session()->has('success'))
@@ -76,9 +76,9 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="priority" class="form-label">Priority</label>
-                                <select class="form-select" name="priority">
-                                    @error('priority')
+                                <label for="priority_id" class="form-label">Priority</label>
+                                <select class="form-select" name="priority_id">
+                                    @error('priority_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
@@ -91,9 +91,9 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="status" class="form-label">Status</label>
-                                <select class="form-select" name="status">
-                                    @error('status')
+                                <label for="status_id" class="form-label">Status</label>
+                                <select class="form-select" name="status_id">
+                                    @error('status_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
@@ -105,9 +105,9 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="category" class="form-label">Category</label>
-                                <select class="form-select" name="category">
-                                    @error('category')
+                                <label for="category_id" class="form-label">Category</label>
+                                <select class="form-select" name="category_id">
+                                    @error('category_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
